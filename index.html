@@ -15,8 +15,66 @@
     <title>Emergency Service</title>
 </head>
 
-<body>
+<body class="bg-gray-50 font-sans">
+  
+    <header class="bg-white shadowad-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        
+            <div class="flex items-center gap-2">
+                <img src="./assets/logo.png" alt="Emergency Service Logo" class="w-10 h-10">
+                <h1 class="text-xl font-bold leading-tight">Emergency <br> Service</h1>
+            </div>
+
+           
+            <div class="flex gap-4">
+                <button
+                    class="bg-[#41FF6B1A] text-black px-4 py-2 rounded-lg font-semibold shadow-sm border border-gray-100"
+                    id="likes-display">0 ❤️</button>
+                <button
+                    class="bg-[#41FF6B1A] text-black px-4 py-2 rounded-lg font-semibold shadow-sm border border-gray-100"
+                    id="coins-display">100 🪙</button>
+                <button
+                    class="bg-[#00A63E] text-white px-4 py-2 rounded-lg font-semibold shadow-sm hover:bg-green-700 transition"
+                    id="copies-display">2 Copy</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-[#006e33] to-[#004d24] text-white py-12 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10 flex flex-col items-center">
+            <img src="./assets/logo.png" alt="Government Logo" class="w-16 h-16 mb-4 bg-white rounded-full p-1">
+            <h2 class="text-3xl font-bold mb-2">Emergency Service Directory</h2>
+            <p class="text-gray-200 text-sm">Government Emergency Services at Your Fingertip – A Project by Government
+                of the People's Republic of Bangladesh</p>
+        </div>
+      
+    </section>
+
+  
+    <main class="container mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+        <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="services-container">
+           
+        </div>
+
     
+        <aside class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 h-fit">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-lg flex items-center gap-2">
+                    🕒 Call History
+                </h3>
+                <button id="clear-history-btn"
+                    class="bg-green-500 text-white px-3 py-1 rounded-full text-sm hover:bg-green-600 transition">Clear</button>
+            </div>
+            <div id="history-list" class="space-y-3">
+               
+                <p class="text-gray-400 text-center text-sm py-4">No calls yet.</p>
+            </div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
