@@ -27,8 +27,6 @@ Returns a NodeList (not live)
 
 2. Creating and Inserting a New Element
 
-Steps:
-
 Create using document.createElement()
 
 Add text or attributes
@@ -41,20 +39,12 @@ Used to create dynamic content with JavaScript.
 
 Event Bubbling means an event starts from the child element and moves up to its parent elements.
 
-Example:
-Button → Div → Body
+
 
 4. What is Event Delegation?
 
 Event Delegation means adding an event listener to a parent instead of multiple child elements.
 
-Why useful:
-
-Better performance
-
-Less code
-
-Works for dynamic elements
 
 5. Difference Between preventDefault() and stopPropagation()
 
