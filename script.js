@@ -1,20 +1,20 @@
 // ==========================================
 // 1. STATE VARIABLES
 // ==========================================
-let coins = 100;       
-let likes = 0;         
-let copies = 0;        
-let callHistory = [];  
+let coins = 100;
+let likes = 0;
+let copies = 0;
+let callHistory = [];
 // ==========================================
 // 2. DOM ELEMENTS (Selecting HTML tags)
 // ==========================================
 
-const coinsDisplay = document.getElementById('coins-display');      
-const likesDisplay = document.getElementById('likes-display');        
-const copiesDisplay = document.getElementById('copies-display');     
+const coinsDisplay = document.getElementById('coins-display');
+const likesDisplay = document.getElementById('likes-display');
+const copiesDisplay = document.getElementById('copies-display');
 const servicesContainer = document.getElementById('services-container');
-const historyList = document.getElementById('history-list');           
-const clearHistoryBtn = document.getElementById('clear-history-btn');  
+const historyList = document.getElementById('history-list');
+const clearHistoryBtn = document.getElementById('clear-history-btn');
 // ==========================================
 // 3. SERVICE DATA
 // ==========================================
@@ -25,7 +25,7 @@ const services = [
         number: "999",
         tag: "All",
         icon: "./assets/emergency.png",
-        bgClass: "bg-red-50" 
+        bgClass: "bg-red-50"
     },
     {
         name: "Police Helpline Number",
@@ -105,18 +105,18 @@ function updateUI() {
 
 // Function: Render (Create) the Service Cards
 function renderServices() {
-  
+
     servicesContainer.innerHTML = '';
 
-   
+
     services.forEach((service, index) => {
-       
+
         const card = document.createElement('div');
 
-       
+
         card.className = "bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition duration-300";
 
-      
+
         card.innerHTML = `
             <div class="flex justify-between items-start mb-4">
                 <div class="${service.bgClass} p-3 rounded-full">
@@ -158,7 +158,7 @@ function renderServices() {
                 </button>
             </div>
         `;
-       
+
         servicesContainer.appendChild(card);
     });
 }
@@ -168,32 +168,51 @@ function renderServices() {
 // ==========================================
 
 function handleLike(btn) {
-   
+
     if (btn.classList.contains('text-red-500')) {
-      
+
         btn.classList.remove('text-red-500', 'fill-current');
         btn.querySelector('svg').style.fill = 'none';
         likes--;
     } else {
-        
+
         btn.classList.add('text-red-500', 'fill-current');
         btn.querySelector('svg').style.fill = 'currentColor';
-        likes++; 
+        likes++;
     }
-   
+
     updateUI();
 }
 
-
+//Handle copy with counting 
 function handleCopy(number) {
-   
+
     navigator.clipboard.writeText(number).then(() => {
-       
-        copies++; 
-        alert(`Copied: ${number}`); 
-        updateUI(); 
+
+        copies++;
+        alert(`Copied: ${number}`);
+        updateUI();
     }).catch(err => {
-      
+
         console.error('Failed to copy text: ', err);
     });
 }
+
+// Handle Clicking the Call Button
+function handleCall(name, number) {
+
+    if (coins < 20) {
+        alert("Not enough coins! You need at least 20 coins to make a call.");
+        return;
+    }
+
+
+    coins -= 20;
+    updateUI();
+
+    const time = new Date().toLocaleTimeString();
+    addToHistory(name, number, time);
+
+    alert(`Calling ${name} (${number})...`);
+}
+
