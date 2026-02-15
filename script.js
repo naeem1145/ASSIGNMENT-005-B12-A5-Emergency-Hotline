@@ -216,3 +216,40 @@ function handleCall(name, number) {
     alert(`Calling ${name} (${number})...`);
 }
 
+// Add a row to the sidebar history
+function addToHistory(name, number, time) {
+   
+    const emptyMsg = historyList.querySelector('p.text-center');
+    if (emptyMsg) {
+        emptyMsg.remove();
+    }
+
+
+    const item = document.createElement('div');
+    item.className = "bg-gray-50 p-3 rounded-lg border border-gray-100 text-sm";
+
+
+    item.innerHTML = `
+        <div class="font-bold text-gray-800">${name}</div>
+        <div class="text-gray-500 text-xs">${number}</div>
+        <div class="text-right text-xs text-gray-400 mt-1">${time}</div>
+    `;
+
+ 
+    historyList.prepend(item);
+}
+
+
+clearHistoryBtn.addEventListener('click', () => {
+   
+    historyList.innerHTML = '<p class="text-gray-400 text-center text-sm py-4">No calls yet.</p>';
+});
+
+// ==========================================
+// 6. INITIALIZATION
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateUI();         
+    renderServices();   
+});
