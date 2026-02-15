@@ -163,3 +163,37 @@ function renderServices() {
     });
 }
 
+// ==========================================
+// 5. INTERACTION FUNCTIONS
+// ==========================================
+
+function handleLike(btn) {
+   
+    if (btn.classList.contains('text-red-500')) {
+      
+        btn.classList.remove('text-red-500', 'fill-current');
+        btn.querySelector('svg').style.fill = 'none';
+        likes--;
+    } else {
+        
+        btn.classList.add('text-red-500', 'fill-current');
+        btn.querySelector('svg').style.fill = 'currentColor';
+        likes++; 
+    }
+   
+    updateUI();
+}
+
+
+function handleCopy(number) {
+   
+    navigator.clipboard.writeText(number).then(() => {
+       
+        copies++; 
+        alert(`Copied: ${number}`); 
+        updateUI(); 
+    }).catch(err => {
+      
+        console.error('Failed to copy text: ', err);
+    });
+}
