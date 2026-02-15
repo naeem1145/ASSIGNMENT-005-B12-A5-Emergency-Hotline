@@ -1,8 +1,8 @@
-1. Difference Between DOM Selection Methods
-getElementById()
-Selects one element using its unique id.
-Returns a single element.
-Very fast and straightforward.
+**#1. Difference Between DOM Selection Methods **
+##getElementById()
+##Selects one element using its unique id.
+##Returns a single element.
+##Very fast and straightforward.
 
 getElementsByClassName()
 Selects elements using a class name.
