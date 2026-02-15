@@ -1,21 +1,103 @@
 // ==========================================
 // 1. STATE VARIABLES
 // ==========================================
-// Think of these as the "memory" of our app.
-// We store data here so we can remember it when the user interacts.
-let coins = 100;        // User starts with 100 coins
-let likes = 0;          // Total likes count starts at 0
-let copies = 0;         // Total copies count starts at 0
-let callHistory = [];   // An empty list (array) to store details of calls made
-
+let coins = 100;       
+let likes = 0;         
+let copies = 0;        
+let callHistory = [];  
 // ==========================================
 // 2. DOM ELEMENTS (Selecting HTML tags)
 // ==========================================
-// In order to change HTML from JavaScript, we first need to "select" the elements.
-// We use document.getElementById('id-name') to find specific tags by their ID.
-const coinsDisplay = document.getElementById('coins-display');         // The button showing coin count
-const likesDisplay = document.getElementById('likes-display');         // The button showing like count
-const copiesDisplay = document.getElementById('copies-display');       // The button showing copy count
-const servicesContainer = document.getElementById('services-container'); // The big box where we will put our cards
-const historyList = document.getElementById('history-list');           // The sidebar list for call history
-const clearHistoryBtn = document.getElementById('clear-history-btn');  // The "Clear" button
+
+const coinsDisplay = document.getElementById('coins-display');      
+const likesDisplay = document.getElementById('likes-display');        
+const copiesDisplay = document.getElementById('copies-display');     
+const servicesContainer = document.getElementById('services-container');
+const historyList = document.getElementById('history-list');           
+const clearHistoryBtn = document.getElementById('clear-history-btn');  
+// ==========================================
+// 3. SERVICE DATA
+// ==========================================
+const services = [
+    {
+        name: "National Emergency Number",
+        englishName: "National Emergency",
+        number: "999",
+        tag: "All",
+        icon: "./assets/emergency.png",
+        bgClass: "bg-red-50" // Light red background for the icon
+    },
+    {
+        name: "Police Helpline Number",
+        englishName: "Police",
+        number: "999",
+        tag: "Police",
+        icon: "./assets/police.png",
+        bgClass: "bg-blue-50"
+    },
+    {
+        name: "Fire Service Number",
+        englishName: "Fire Service",
+        number: "999",
+        tag: "Fire",
+        icon: "./assets/fire-service.png",
+        bgClass: "bg-orange-50"
+    },
+    {
+        name: "Ambulance Service",
+        englishName: "Ambulance",
+        number: "1994-999999",
+        tag: "Health",
+        icon: "./assets/ambulance.png",
+        bgClass: "bg-red-50"
+    },
+    {
+        name: "Women & Child Helpline",
+        englishName: "Women & Child Helpline",
+        number: "109",
+        tag: "Help",
+        icon: "./assets/emergency.png",
+        bgClass: "bg-pink-50"
+    },
+    {
+        name: "Anti-Corruption Helpline",
+        englishName: "Anti-Corruption",
+        number: "106",
+        tag: "Govt.",
+        icon: "./assets/emergency.png",
+        bgClass: "bg-gray-50"
+    },
+    {
+        name: "Electricity Helpline",
+        englishName: "Electricity Outage",
+        number: "16216",
+        tag: "Electricity",
+        icon: "./assets/emergency.png",
+        bgClass: "bg-red-50"
+    },
+    {
+        name: "Brac Helpline",
+        englishName: "Brac",
+        number: "16445",
+        tag: "NGO",
+        icon: "./assets/brac.png",
+        bgClass: "bg-orange-50"
+    },
+    {
+        name: "Bangladesh Railway Helpline",
+        englishName: "Bangladesh Railway",
+        number: "163",
+        tag: "Travel",
+        icon: "./assets/Bangladesh-Railway.png",
+        bgClass: "bg-green-50"
+    }
+];
+
+// ==========================================
+// 4. FUNCTIONS
+// ==========================================
+function updateUI() {
+    coinsDisplay.innerText = `${coins} 🪙`;
+    likesDisplay.innerText = `${likes} ❤️`;
+    copiesDisplay.innerText = `${copies} Copy`;
+}
